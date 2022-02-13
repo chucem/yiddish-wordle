@@ -3,7 +3,7 @@ import { BaseModal } from './BaseModal'
 import { Trans, useTranslation } from 'react-i18next'
 
 type Props = {
-  isOpen: boolean
+  isOpen: boolean,
   handleClose: () => void
 }
 
@@ -11,6 +11,7 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
   const { t } = useTranslation()
   return (
     <BaseModal title={t('about')} isOpen={isOpen} handleClose={handleClose}>
+    <div dir={t('dir')}>
       <p className="text-sm text-gray-500">
         <Trans
           i18nKey="aboutAuthorSentence"
@@ -62,10 +63,11 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
             href="https://www.powerlanguage.co.uk/wordle/"
             className="underline font-bold"
           >
-            play the original here
+            play the original here.
           </a>
         </Trans>
       </p>
+    </div>
     </BaseModal>
   )
 }

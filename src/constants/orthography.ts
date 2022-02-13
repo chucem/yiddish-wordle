@@ -28,12 +28,12 @@ export const ORTHOGRAPHY = [
   'צ',
   'ת',
   'ץ',
-  'פּ',
   'אַ',
   'אָ',
   'װ',
   'ױ',
   'ײ',
+  'פּ',
 ]
 
 if (CONFIG.normalization) {

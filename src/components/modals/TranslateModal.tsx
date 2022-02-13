@@ -11,7 +11,7 @@ type Props = {
 export const TranslateModal = ({ isOpen, handleClose }: Props) => {
   const { t, i18n } = useTranslation()
   const langs: any = {
-    es: 'Español',
+    yi: 'יידיש',
     en: 'English',
   }
   const onChangeValue = (event: any) => {

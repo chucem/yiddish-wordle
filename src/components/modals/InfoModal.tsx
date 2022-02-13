@@ -12,6 +12,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
   const { t } = useTranslation()
   return (
     <BaseModal title={t('howToPlay')} isOpen={isOpen} handleClose={handleClose}>
+    <div dir={t('dir')}>
       <p className="text-sm text-gray-500">
         {t('instructions', { tries: CONFIG.tries })}
       </p>
@@ -42,6 +43,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value={t('thirdExampleWord.4')} />
       </div>
       <p className="text-sm text-gray-500">{t('notInWordInstructions')}</p>
+    </div>
     </BaseModal>
   )
 }

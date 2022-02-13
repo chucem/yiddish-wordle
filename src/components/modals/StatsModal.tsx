@@ -45,6 +45,7 @@ export const StatsModal = ({
       handleClose={handleClose}
     >
       <StatBar gameStats={gameStats} />
+      <div dir={t('dir')}>
       <h4 className="text-lg leading-6 font-medium text-gray-900">
         {t('guessDistribution')}
       </h4>
@@ -71,6 +72,7 @@ export const StatsModal = ({
           </button>
         </div>
       )}
+    </div>
     </BaseModal>
   )
 }

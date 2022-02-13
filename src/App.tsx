@@ -9,7 +9,7 @@ import { AboutModal } from './components/modals/AboutModal'
 import { InfoModal } from './components/modals/InfoModal'
 import { StatsModal } from './components/modals/StatsModal'
 import { TranslateModal } from './components/modals/TranslateModal'
-import { WIN_MESSAGES } from './constants/strings'
+//import { WIN_MESSAGES } from './constants/strings'
 import { isWordInWordList, isWinningWord, solution } from './lib/words'
 import { addStatsForCompletedGame, loadStats } from './lib/stats'
 import {
@@ -67,9 +67,9 @@ const App: React.FC<WithTranslation> = ({ t, i18n }) => {
 
   useEffect(() => {
     if (isGameWon) {
-      setSuccessAlert(
-        WIN_MESSAGES[Math.floor(Math.random() * WIN_MESSAGES.length)]
-      )
+      //setSuccessAlert(
+      //  t(WIN_MESSAGES[Math.floor(Math.random() * WIN_MESSAGES.length)])
+      //)
       setTimeout(() => {
         setSuccessAlert('')
         setIsStatsModalOpen(true)
@@ -148,9 +148,7 @@ const App: React.FC<WithTranslation> = ({ t, i18n }) => {
   return (
     <div className="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div className="flex w-80 mx-auto items-center mb-8">
-        <h1 className="text-xl grow font-bold">
-          Not Wordle - {CONFIG.language}
-        </h1>
+        <h1 className="text-xl grow font-bold">{t('title')}</h1>
         {translateElement}
         <InformationCircleIcon
           className="h-6 w-6 cursor-pointer"

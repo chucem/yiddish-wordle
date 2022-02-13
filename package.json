@@ -1,7 +1,7 @@
 {
-    "name": "any-language-wordle",
+    "name": "yiddish-wordle",
     "version": "0.1.0",
-    "homepage": "https://alephreish.github.io/dos-vordl/",
+    "homepage": "https://alephreish.github.io/yiddish-wordle/",
     "private": true,
     "dependencies": {
         "@bcgov/bc-sans": "^1.0.1",
