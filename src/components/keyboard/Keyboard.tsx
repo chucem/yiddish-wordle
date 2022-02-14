@@ -3,7 +3,6 @@ import { getStatuses } from '../../lib/statuses'
 import { Key } from './Key'
 import { useEffect } from 'react'
 import { ORTHOGRAPHY } from '../../constants/orthography'
-import { useTranslation } from 'react-i18next'
 import { BackspaceIcon } from '@heroicons/react/outline'
 import { CheckCircleIcon } from '@heroicons/react/outline'
 
@@ -15,7 +14,6 @@ type Props = {
 }
 
 export const Keyboard = ({ onChar, onDelete, onEnter, guesses }: Props) => {
-  const { t } = useTranslation()
   const tr : any = {'ק':'ק','ר':'ר','א':'א','ט':'ט','ו':'ו','ן':'נ','ם':'מ','פ':'פ','ש':'ש','ד':'ד','ג':'ג','כ':'כ','ע':'ע','י':'י','ח':'ח','ל':'ל','ך':'כ','ף':'פ','ז':'ז','ס':'ס','ב':'ב','ה':'ה','נ':'נ','מ':'מ','צ':'צ','ת':'ת','ץ':'צ','אַ':'אַ','אָ':'אָ','װ':'װ','ױ':'ױ','ײ':'ײ','פּ':'פּ',}
   const charStatuses = getStatuses(guesses)
   const onClick = (value: KeyValue) => {
@@ -50,7 +48,7 @@ export const Keyboard = ({ onChar, onDelete, onEnter, guesses }: Props) => {
   }, [onEnter, onDelete, onChar])
 
   return (
-    <div dir="ltr">
+    <div style={{marginRight:"10px",marginLeft:"10px"}} dir="ltr">
       <div className="flex justify-center mb-1">
         {ORTHOGRAPHY.slice(0, 8).map(
           (char) => (
