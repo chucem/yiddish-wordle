@@ -4,6 +4,8 @@ import { Key } from './Key'
 import { useEffect } from 'react'
 import { ORTHOGRAPHY } from '../../constants/orthography'
 import { useTranslation } from 'react-i18next'
+import { BackspaceIcon } from '@heroicons/react/outline'
+import { CheckCircleIcon } from '@heroicons/react/outline'
 
 type Props = {
   onChar: (value: string) => void
@@ -67,15 +69,15 @@ export const Keyboard = ({ onChar, onDelete, onEnter, guesses }: Props) => {
         ))}
       </div>
       <div className="flex justify-center">
-        <Key width={65.4} value="DELETE" onClick={onClick}>
-          {t('deleteKey')}
+        <Key width={60} value="ENTER" onClick={onClick}>
+          <CheckCircleIcon className="h-6 w-6 cursor-pointer"/>
         </Key>
         {ORTHOGRAPHY.slice(27, ORTHOGRAPHY.length).map((char) => (
            <Key value={char} onClick={onClick} status={charStatuses[tr[char]]} />
          ))}
-         <Key width={65.4} value="ENTER" onClick={onClick}>
-           {t('enterKey')}
-         </Key>
+        <Key width={60} value="DELETE" onClick={onClick}>
+          <BackspaceIcon className="h-6 w-6 cursor-pointer"/>
+        </Key>
       </div>
     </div>
   )
