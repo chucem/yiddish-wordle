@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react'
 import { Alert } from './components/alerts/Alert'
 import { Grid } from './components/grid/Grid'
 import { Keyboard } from './components/keyboard/Keyboard'
-//import { AboutModal } from './components/modals/AboutModal'
 import { InfoModal } from './components/modals/InfoModal'
 import { StatsModal } from './components/modals/StatsModal'
 import { TranslateModal } from './components/modals/TranslateModal'
@@ -19,7 +18,7 @@ import {
 } from './lib/localStorage'
 
 import { CONFIG } from './constants/config'
-import ReactGA from 'react-ga'
+import GA4React from 'ga-4-react'
 import '@bcgov/bc-sans/css/BCSans.css'
 import './i18n'
 import { withTranslation, WithTranslation } from 'react-i18next'
@@ -55,8 +54,16 @@ const App: React.FC<WithTranslation> = ({ t, i18n }) => {
 
   const TRACKING_ID = CONFIG.googleAnalytics // YOUR_OWN_TRACKING_ID
   if (TRACKING_ID && process.env.NODE_ENV !== 'test') {
-    ReactGA.initialize(TRACKING_ID)
-    ReactGA.pageview(window.location.pathname)
+    const ga4react = new GA4React(TRACKING_ID)
+    ga4react.initialize().then(
+      (ga4) => {
+        ga4.pageview(window.location.pathname)
+        ga4.gtag('event', 'pageview', window.location.pathname)
+      },
+      (err) => {
+        console.error(err)
+      }
+    )
   }
   const [stats, setStats] = useState(() => loadStats())
 
