@@ -4,9 +4,15 @@ import { ORTHOGRAPHY_PATTERN } from './tokenizer'
 
 export type CharStatus = 'absent' | 'present' | 'correct'
 
-export type CharValue = typeof ORTHOGRAPHY[number]
+export type CharValue = string
 
-const tr : any = {'ק':'ק','ר':'ר','א':'א','ט':'ט','ו':'ו','ן':'נ','ם':'מ','פ':'פ','ש':'ש','ד':'ד','ג':'ג','כ':'כ','ע':'ע','י':'י','ח':'ח','ל':'ל','ך':'כ','ף':'פ','ז':'ז','ס':'ס','ב':'ב','ה':'ה','נ':'נ','מ':'מ','צ':'צ','ת':'ת','ץ':'צ','אַ':'אַ','אָ':'אָ','װ':'װ','ױ':'ױ','ײ':'ײ','פּ':'פּ',}
+let tr: { [key:string]: string } = {}
+for (let i:number = 0; i < ORTHOGRAPHY.length; i++) {
+  let KEYS: string[] = Object.keys(ORTHOGRAPHY[i])
+  for(let j:number = 0; j < KEYS.length; j++) {
+    tr[KEYS[j]] = ORTHOGRAPHY[i][KEYS[j]]
+  }
+}
 
 export const getStatuses = (
   guesses: string[][]

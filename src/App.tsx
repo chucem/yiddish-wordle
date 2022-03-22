@@ -18,7 +18,7 @@ import {
 } from './lib/localStorage'
 
 import { CONFIG } from './constants/config'
-import GA4React from 'ga-4-react'
+// import GA4React from 'ga-4-react'
 import '@bcgov/bc-sans/css/BCSans.css'
 import './i18n'
 import { withTranslation, WithTranslation } from 'react-i18next'
@@ -52,19 +52,18 @@ const App: React.FC<WithTranslation> = ({ t, i18n }) => {
     return loaded.guesses
   })
 
-  const TRACKING_ID = CONFIG.googleAnalytics // YOUR_OWN_TRACKING_ID
-  if (TRACKING_ID && process.env.NODE_ENV !== 'test') {
-    const ga4react = new GA4React(TRACKING_ID)
-    ga4react.initialize().then(
-      (ga4) => {
-        ga4.pageview(window.location.pathname)
-        ga4.gtag('event', 'pageview', window.location.pathname)
-      },
-      (err) => {
-        console.error(err)
-      }
-    )
-  }
+  //const TRACKING_ID = CONFIG.googleAnalytics // YOUR_OWN_TRACKING_ID
+  //if (TRACKING_ID && process.env.NODE_ENV !== 'test' && !GA4React.isInitialized()) {
+  //  const ga4react = new GA4React(TRACKING_ID)
+  //  ga4react.initialize().then(
+  //    (ga4) => {
+  //      ga4.pageview(window.location.pathname)
+  //    },
+  //    (err) => {
+  //      console.error(err)
+  //    }
+  //  )
+  //}
   const [stats, setStats] = useState(() => loadStats())
 
   useEffect(() => {
