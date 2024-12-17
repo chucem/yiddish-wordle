@@ -1,5 +1,3 @@
-import { CONFIG } from './config'
-
 export const ORTHOGRAPHY: { [key:string]: string }[] = [
   {
     'ק': 'ק',
